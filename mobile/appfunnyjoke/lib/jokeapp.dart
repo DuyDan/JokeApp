@@ -72,12 +72,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
-          leading: const CircleAvatar(
-            radius: 30.0,
-            backgroundImage:  AssetImage('images/logo.jpg'),
-            backgroundColor: Colors.transparent,
+          leading: const FlutterLogo(
           ),
-
           actions: [
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
@@ -86,30 +82,29 @@ class _MyHomePageState extends State<MyHomePage> {
                   Padding(
                     padding: const EdgeInsets.only(left: 16.0),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisSize: MainAxisSize.min,
                       children: const <Widget>[
                         Text(
-                          'Duy Dan',
+                          'Handicrafted by',
                           style: TextStyle(
-                              fontSize: 26.0,
-                              color: Colors.black87,
+                              fontSize: 13,
+                              color: Colors.grey,
                               fontWeight: FontWeight.w400),
                         ),
                         Text(
-                          'handsome',
+                          'JimHLS',
                           style: TextStyle(
                               fontSize: 14.0,
-                              color: Colors.grey,
+                              color: Colors.black87,
                               fontWeight: FontWeight.w300),
                         ),
                       ],
                     ),
                   ),
                   const CircleAvatar(
-                    minRadius: 28.0,
-                    maxRadius: 28.0,
-                    backgroundImage:  AssetImage('images/logo.jpg'),
+                    radius: 40,
+                    backgroundImage:  AssetImage('images/avatar.jpg'),
                   ),
                 ],
               ),
@@ -122,35 +117,39 @@ class _MyHomePageState extends State<MyHomePage> {
               children: <Widget>[
                 Row(
                   children: <Widget>[
-                    Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 180,
-                        decoration: BoxDecoration(
-                            color: Colors.green,
-                            border: Border.all(color: Colors.blueAccent)),
-                        child: Center(
-                          child: RichText(
-                            textAlign: TextAlign.center,
-                            text: const TextSpan(
-                              children: <TextSpan>[
-                                TextSpan(
-                                  text: "A joke a day keeps the doctor away\n",
-                                  style: TextStyle(color: Colors.white, fontSize: 18),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 30),
+                      child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 150,
+                          decoration: BoxDecoration(
+                              color: Colors.greenAccent[400],
+                              border: Border.all(color: Colors.blueAccent)),
+                          child: Center(
+                            child: RichText(
+                              textAlign: TextAlign.center,
+                              text: const TextSpan(
+                                children: <TextSpan>[
+                                  TextSpan(
+                                    text: "A joke a day keeps the doctor away\n",
+                                    style: TextStyle(color: Colors.white,height: 3 ,fontSize: 20),
 
-                                ),
-                                TextSpan(
-                                  text: "If you joke wrong way, your teeth have to pay. (Serious) \n",
-                                  style: TextStyle(color: Colors.white, fontSize: 15),
-                                ),
-                              ],
+                                  ),
+                                  TextSpan(
+                                    text: "If you joke wrong way, your teeth have to pay. (Serious) \n",
+                                    style: TextStyle(color: Colors.white,height:2 , fontSize: 15),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        )
+                          )
+                      ),
                     ),
+
                   ],
                 ),
                 Container(
-                  height: 350,
+                  height: 300,
                   width: 350,
                     child: Stack(children: [
                       Container(
@@ -159,11 +158,11 @@ class _MyHomePageState extends State<MyHomePage> {
                           matchEngine: _matchEngine!,
                           itemBuilder: (BuildContext context, int index) {
                             return Container(
-                              alignment: Alignment.center,
-                              color: Colors.white,
+                              alignment: Alignment.topCenter,
+                              color: Colors.grey[50],
                               child: Text(
                                 _swipeItems[index].content.text,
-                                style: TextStyle(fontSize: 18),
+                                style: TextStyle(fontSize: 15),
                               ),
                             );
                           },
@@ -208,7 +207,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   _matchEngine!.currentItem?.nope();
                                 },
                                 style: ElevatedButton.styleFrom(
-                                  primary: Colors.green, // Background color
+                                  primary: Colors.greenAccent[400], // Background color
                                 ),
                                 child: Text("This is not funny")),
                             ElevatedButton(
@@ -226,19 +225,24 @@ class _MyHomePageState extends State<MyHomePage> {
                       margin: const EdgeInsets.all(10.0),
                       width: double.infinity,
                       height: 150,
+                      decoration: const BoxDecoration(
+                        border: Border(
+                          top: BorderSide(color: Color(0xFFDFDFDF)),
+                        ),
+                      ),
                       child: Center(
                         child: RichText(
                           textAlign: TextAlign.center,
                           text: TextSpan(
                             children: <TextSpan>[
                               TextSpan(
-                                text: "Coder must finished at least 50% of the requirements to be given a pass. Evaluation will be based on speed, code quality and critical thinking. Grading is pessimistic - You will not get an A unless you clearly show you are an A. ",
-                                style: TextStyle(color: Colors.black.withOpacity(0.5), fontSize: 18),
+                                text: "Coder must finished at least 50% of the requirements to be given a pass. Evaluation will be based on speed, code quality and critical thinking. Grading is pessimistic - You will not get an A unless. ",
+                                style: TextStyle(color: Colors.black.withOpacity(0.5), fontSize: 13),
 
                               ),
                               TextSpan(
                                 text: "Copyright 2021 HLS \n",
-                                style: TextStyle(color: Colors.black.withOpacity(0.7), fontSize: 20, height: 2),
+                                style: TextStyle(color: Colors.black.withOpacity(0.7), fontSize: 15, height: 2),
                               ),
                             ],
                           ),
